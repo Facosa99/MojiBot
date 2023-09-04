@@ -44,9 +44,9 @@ async def on_member_join(member):
     #embed = discord.Embed(        title="Welcome " + member.name + "!",    description = "We're so glad you're here!",    color = discord.Color.green()    )
 
     # Assign roles to new members:
-    role = discord.utils.get(member.server.roles, name="name-of-your-role")  # Gets the member role as a `role` object
-    await client.add_roles(member, role)  # Gives the role to the user
-    print("Added role '" + role.name + "' to " + member.name)
+    #role = discord.utils.get(member.server.roles, name="name-of-your-role")  # Gets the member role as a `role` object
+    #await client.add_roles(member, role)  # Gives the role to the user
+    #print("Added role '" + role.name + "' to " + member.name)
 
 
 
@@ -80,7 +80,11 @@ async def on_message(message):
         await message.channel.send(f'Aww that´s okay!')
     elif message.content.lower().startswith('moji, sleepy time'):
         await message.channel.send(f'Okie Dokie Pokie!')
-
+    elif message.content.lower().startswith('moji, be racist'):
+        await message.channel.send(f'Frick em good for nothin Ska´drins!')
+    elif message.content.lower().startswith('moji, notify the server'):
+        await message.channel.send(f'Okie dokie pokie!')
+        await message.channel.send(f'https://cdn.discordapp.com/attachments/902883318679343144/1148389283841966210/7lznjlgopamb1.png')
     # Moji, snack time
     # Good moji
     # Moji, help
@@ -111,6 +115,53 @@ async def on_message(message):
         else:
             await message.channel.send(f'I dont see you in any voice channel')
 
+    elif message.content.lower().startswith('moji, scream'):
+        if message.author.voice:  # This line checks if the user is in a voice channel
+            print(type(message.author.voice))
+            channel = message.author.voice.channel
+            # They are indeed in a channel, so first, answer the petition
+            await message.channel.send(f'Okie doki pokie!')
+            await asyncio.sleep(1)
+            # Now, lets connect to their channel
+            vc = await channel.connect()
+            vc.play(discord.FFmpegPCMAudio('scream.mp3'), after=lambda e: print('done', e))
+            await asyncio.sleep(2)
+            await vc.disconnect()
+            print(type(vc))
+
+            # player = vc.create_ffmpeg_player('scream.mp3', after=lambda: print('done'))
+            # player.start()
+            # while not player.is_done():
+            #    await asyncio.sleep(1)
+            # disconnect after the player has finished
+            # player.stop()
+            # await vc.disconnect()
+        else:
+            await message.channel.send(f'I dont see you in any voice channel')
+
+    elif message.content.lower().startswith('moji, sing'):
+        if message.author.voice:    # This line checks if the user is in a voice channel
+            print(type(message.author.voice))
+            channel = message.author.voice.channel
+            # They are indeed in a channel, so first, answer the petition
+            await message.channel.send(f'Okie doki pokie!')
+            await asyncio.sleep(1)
+            # Now, lets connect to their channel
+            vc = await channel.connect()
+            vc.play(discord.FFmpegPCMAudio('IsabelleSong.mp3'), after=lambda e: print('done', e))
+            await asyncio.sleep(194)
+            await vc.disconnect()
+            print(type(vc))
+
+            #player = vc.create_ffmpeg_player('scream.mp3', after=lambda: print('done'))
+            #player.start()
+            #while not player.is_done():
+            #    await asyncio.sleep(1)
+            # disconnect after the player has finished
+            #player.stop()
+            #await vc.disconnect()
+        else:
+            await message.channel.send(f'I dont see you in any voice channel')
 
 
 
