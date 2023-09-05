@@ -87,11 +87,14 @@ async def on_message(message):
         await message.channel.send(f'https://cdn.discordapp.com/attachments/902883318679343144/1148389283841966210/7lznjlgopamb1.png')
 
     elif message.content.lower().startswith('moji, rock'):
-        await message.channel.send( TextReplies.RockPaperScissors('rock'))
+        if f'{message.author}' == 'anthonyzf20':    await message.channel.send('Paper! I win!')
+        else:                                       await message.channel.send( TextReplies.RockPaperScissors('rock'))
     elif message.content.lower().startswith('moji, paper'):
-        await message.channel.send( TextReplies.RockPaperScissors('paper'))
+        if f'{message.author}' == 'anthonyzf20':    await message.channel.send('Scissors! I win!')
+        else:                                       await message.channel.send( TextReplies.RockPaperScissors('paper'))
     elif message.content.lower().startswith('moji, scissors'):
-        await message.channel.send( TextReplies.RockPaperScissors('scissors'))
+        if f'{message.author}' == 'anthonyzf20':    await message.channel.send('Rock! I win!')
+        else:                                       await message.channel.send( TextReplies.RockPaperScissors('scissors'))
     # Moji, snack time
     # Good moji
     # Moji, help
