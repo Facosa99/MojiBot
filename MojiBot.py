@@ -8,6 +8,7 @@ from dotenv import load_dotenv
 from NecoArcASCII import NecoArc
 import nacl.secret
 import nacl.utils
+import TextReplies
 load_dotenv()                           # Refresh enviroment
 
 # intents are the permissions for the bot
@@ -17,7 +18,7 @@ intents.message_content = True
 client=discord.Client(intents=intents)  # After setting the right permissions, send them
 
 @client.event
-async def on_ready():
+async def on_ready():                   # This block of code will execute once the Bot logins
     print(f'We have logged in as {client.user}')
 
 @client.event       # This code block is executed everytime a new member is detected in the server
@@ -84,6 +85,13 @@ async def on_message(message):
     elif message.content.lower().startswith('moji, notify the server'):
         await message.channel.send(f'Okie dokie pokie!')
         await message.channel.send(f'https://cdn.discordapp.com/attachments/902883318679343144/1148389283841966210/7lznjlgopamb1.png')
+
+    elif message.content.lower().startswith('moji, rock'):
+        await message.channel.send( TextReplies.RockPaperScissors('rock'))
+    elif message.content.lower().startswith('moji, paper'):
+        await message.channel.send( TextReplies.RockPaperScissors('paper'))
+    elif message.content.lower().startswith('moji, scissors'):
+        await message.channel.send( TextReplies.RockPaperScissors('scissors'))
     # Moji, snack time
     # Good moji
     # Moji, help
