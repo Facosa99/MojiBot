@@ -101,7 +101,7 @@ async def on_message(message):
             await asyncio.sleep(1)
             # Now, lets connect to their channel
             vc = await channel.connect()
-            vc.play(discord.FFmpegPCMAudio('scream.mp3'), after=lambda e: print('done', e))
+            vc.play(discord.FFmpegPCMAudio('AudioFiles/scream.mp3'), after=lambda e: print('done', e))
             await asyncio.sleep(2)
             await vc.disconnect()
             print(type(vc))
@@ -116,30 +116,6 @@ async def on_message(message):
         else:
             await message.channel.send(f'I dont see you in any voice channel')
 
-    elif message.content.lower().startswith('moji, scream'):
-        if message.author.voice:  # This line checks if the user is in a voice channel
-            print(type(message.author.voice))
-            channel = message.author.voice.channel
-            # They are indeed in a channel, so first, answer the petition
-            await message.channel.send(f'Okie doki pokie!')
-            await asyncio.sleep(1)
-            # Now, lets connect to their channel
-            vc = await channel.connect()
-            vc.play(discord.FFmpegPCMAudio('scream.mp3'), after=lambda e: print('done', e))
-            await asyncio.sleep(2)
-            await vc.disconnect()
-            print(type(vc))
-
-            # player = vc.create_ffmpeg_player('scream.mp3', after=lambda: print('done'))
-            # player.start()
-            # while not player.is_done():
-            #    await asyncio.sleep(1)
-            # disconnect after the player has finished
-            # player.stop()
-            # await vc.disconnect()
-        else:
-            await message.channel.send(f'I dont see you in any voice channel')
-
     elif message.content.lower().startswith('moji, sing'):
         if message.author.voice:    # This line checks if the user is in a voice channel
             print(type(message.author.voice))
@@ -149,7 +125,7 @@ async def on_message(message):
             await asyncio.sleep(1)
             # Now, lets connect to their channel
             vc = await channel.connect()
-            vc.play(discord.FFmpegPCMAudio('IsabelleSong.mp3'), after=lambda e: print('done', e))
+            vc.play(discord.FFmpegPCMAudio('AudioFiles/IsabelleSong.mp3'), after=lambda e: print('done', e))
             await asyncio.sleep(194)
             await vc.disconnect()
             print(type(vc))
