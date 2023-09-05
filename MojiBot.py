@@ -100,6 +100,7 @@ async def on_message(message):
     # Moji, help
     # Moji, silence them
     # Calamardo guapo, ASCII
+    # Its Mojin Time
 
 
     elif message.content.lower().startswith('moji, scream') and False:
