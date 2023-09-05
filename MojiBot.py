@@ -88,6 +88,7 @@ async def on_message(message):
     # Moji, snack time
     # Good moji
     # Moji, help
+    # Moji, silence them
     # Calamardo guapo, ASCII
 
 
