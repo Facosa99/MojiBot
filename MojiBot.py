@@ -14,7 +14,6 @@ load_dotenv()                           # Refresh enviroment
 intents = discord.Intents.default()
 intents.members = True                  # Detect events related to a server member. For example, a new arrival or someone leaving the server
 intents.message_content = True
-
 client=discord.Client(intents=intents)  # After setting the right permissions, send them
 
 @client.event
@@ -92,7 +91,7 @@ async def on_message(message):
     # Calamardo guapo, ASCII
 
 
-    elif message.content.lower().startswith('moji, scream'):
+    elif message.content.lower().startswith('moji, scream') and False:
         if message.author.voice:    # This line checks if the user is in a voice channel
             print(type(message.author.voice))
             channel = message.author.voice.channel
@@ -116,7 +115,7 @@ async def on_message(message):
         else:
             await message.channel.send(f'I dont see you in any voice channel')
 
-    elif message.content.lower().startswith('moji, sing'):
+    elif message.content.lower().startswith('moji, sing') and False:
         if message.author.voice:    # This line checks if the user is in a voice channel
             print(type(message.author.voice))
             channel = message.author.voice.channel
