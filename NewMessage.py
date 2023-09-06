@@ -9,9 +9,6 @@ current_dir = str(Path(__file__).resolve().parent).replace('\\', '/')
 
 async def Responses(message, client):
 
-        if message.author == client.user:  # Prevent the bot from replying to itself, thus preventing undesired loops
-            return
-
         # if f'{message.author}' == 'anthonyzf20':  # Reply to this user everytime the bot detects a new message from then
         #    await message.channel.send('¿Quien?')
         #   return
