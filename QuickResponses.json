@@ -1,24 +1,29 @@
 {
         "moji, test 1":         "this is the text stored in the JSON file under 'Test 1'",
-        "moji, test 2":         "this is the text stored under 'Test 2'",
-        "moji, test 3":         "this is the test 3's stored text",
+        "moji, test 3":         "this is the text stored under 'Test 2'",
+        "moji, test 4":         "this is the test 3's stored text",
         "moji, say hello":      "https://cdn.discordapp.com/attachments/963652712199766106/976170182034718750/Moji_dice_hola.gif",
         "moji, dance":          "https://cdn.discordapp.com/attachments/963652712199766106/1147006164689752095/Moji_Dance_-_Bal_Model_sin_clipping.gif",
-        "sexo":                 "Dont be a pervert, Red. Come on, you made me change the damn code for this",
-        "peru":                 "Bombardeen Peru",
-        "moji, call me daddy":  "ok, you are my daddy",
-        "moji, fuck me":        "No need, goverment already fucks you",
+        "moji, call me daddy":  "ok, you are my daddy, (user.name)",
+        "moji, fuck me":        "No need, (user.name), goverment already fucks you",
         "5":                    "Cinco? Por el culo te la ahinco!",
         "13":                   "Trece? Entre mas me la mamas mas me crece!",
         "thank you, moji":      "You are welcome",
         "sorry, moji":          "Aww that´s okay!",
         "moji, sleepy time":    "Close the program or delete system32 or kill the server, something like that",
         "moji, be racist":      "Frick em good for nothin Ska´drins!",
-        "moji, notify the server":"https://cdn.discordapp.com/attachments/902883318679343144/1148389283841966210/7lznjlgopamb1.png",
-        "moji, apologize to god":"Im sorry daddy, I have been naughty",
         "moji, snack time":     "Put a snack gif here",
         "good moji":            "Thanks",
-        "moji, silence them":   "You should kill yourself now or something idk",
+        "moji, silence them":   "You should kill yourself  now or something idk",
         "its Mojin Time":       "Creepy image here",
-        "i love you, moji":     "Aw :heart: I love you too!"
+        "i love you, moji":     "Aw :heart: I love you too, (user.name)",
+        "moji, apologize to god":"Im sorry daddy, I have been naughty",
+        "moji, notify the server":"https://cdn.discordapp.com/attachments/902883318679343144/1148389283841966210/7lznjlgopamb1.png",
+
+        "moji, que es burrear":
+"No sabes lo que es burrear? No le has visto la munda a un burro? Es una vaina de respeto! De fundamento! Por tanto la chucha de la burra es profunda, cuando yo se lo meto no le hago nada.. pero ella a mi si me hace mucho. Me succiona la monda y me la pone grande, gruesa y cabezona, una monda de fundamento! de hombre! de varon! que las venas parecen una habichuela! se le ven como caminito comejen... esa es la diferencia entre tu y yo, cachaco. Vos con pipi... y yo aca con monda. Por ende lo que yo le hago a la burra no es zoofilia, es un tratamiento estetico de la monda, y eso no lo consigues en ni un spa oiste?",
+        "argentina":
+"¿Cuál es el mejor whisky del mundo? El mejor del mundo es el Blue Label de Johnnie Walker, porque un Johnnie Walker etiqueta negra, lo tomo. Pero cuando es algo especial, tomo un Blue Label. Es un elixir...  y los otros son un whisky. Uno se toma, el otro se saborea!",
+        "moji, what is the most compatible race":
+"In terms of humanoid and not-humanoid inter-breeding, leiporis are the most compatible race for humans and elves. \n\nNot only are they descendants of rabbit-like beings, which are mammals, leiporis can change their own size through magic. This means that they can be large enough to be able to handle any dick size, and with their impresive healing magic, you can be rough with one. Some leiporis can also use water-based magic, so there is no doubt in my mind that an aroused leipori would be incredible wey, so wet in fact that you could easily have sex with one for hours without getting sore. They also have mastery of polymorph magic, so it would be incredibly easy for one to seduce you through shapeshifting to get you in the mood. Furthermore, with their rabbit-like endurance, they dont get tired easily. No other race comes close to this level of compatibility. Also, fun fact, a rabbit´s jump speed is between 25 and 40 mph, so one leipori could ride your dick at unhuman speeds. Leiporis are literally built for dick. \n\nUngodly healing + high endurance + polymorph magic means they can take dick all day, all shapes andsizes and still come for more"
 }

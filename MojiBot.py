@@ -1,14 +1,12 @@
 import asyncio
-
 import discord                          # Documentation: https://discordpy.readthedocs.io/en/stable/index.html
 import os
-
 from discord import FFmpegPCMAudio
 from dotenv import load_dotenv
 from NecoArcASCII import NecoArc
 import nacl.secret
 import nacl.utils
-import TextReponses
+from NewMessage import Responses
 load_dotenv()                           # Refresh enviroment
 
 # intents are the permissions for the bot
@@ -17,8 +15,8 @@ intents.members = True                  # Detect events related to a server memb
 intents.message_content = True
 client=discord.Client(intents=intents)  # After setting the right permissions, send them
 
-@client.event
-async def on_ready():                   # This block of code will execute once the Bot logins
+@client.event       # This block of code will execute once the Bot logins
+async def on_ready():
     print(f'We have logged in as {client.user}')
 
 @client.event       # This code block is executed everytime a new member is detected in the server
@@ -52,22 +50,6 @@ async def on_member_join(member):
 
 @client.event       # This code block is executed everytime a new message is detected
 async def on_message(message):
-
-    if message.author == client.user:  # Do not reply to yourself. This line prevents loops
-        return
-
-    #if f'{message.author}' == 'anthonyzf20':  # Do not reply to yourself. This line prevents loops
-    #    await message.channel.send('¿Quien?')
-
-    await TextReponses.Responses(message, client)
-
-    # Moji, snack time
-    # Good moji
-    # Moji, help
-    # Moji, silence them
-    # Calamardo guapo, ASCII
-    # Its Mojin Time
-    # This one always at the end
-
+    await Responses(message, client)
 
 client.run(os.environ['BotToken']) # Bot's unique token, stored in the .env file within the same directory as the rest of the project
