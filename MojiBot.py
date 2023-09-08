@@ -39,7 +39,7 @@ async def on_message(message):
     if message.author == bot.user: return   # if current message is from Bot itself, ignore it and finish the function.
                                             # This prevents the bot from replying to itself and thus avoids undesirable loops.
 
-    await Responses(message, bot)           # If you want simple responses to certain messages, set them in the associated JSON
+    await Responses(message)                # If you want simple responses to certain messages, set them in the associated JSON
                                             # file and put this line. For more interactive responses (like repeating the message
                                             # text or doing an operation) use commands, as those can receive arguments
 
@@ -63,32 +63,27 @@ async def help(ctx):
         ResponsesList = json.load(openfile)
 
     Replies = ResponsesList # Dump the info of said file into a dictionary
-    ResponsesList.close()   # The info has been dumped into the dictionay, JSON can be closed now.
-
     # Create a String to store our reply to the 'help' command
     HelpReply = f'This is a list of some of the phrases that I respond to. ' \
                f'I do not care about capitalization\n'
-
     # Append the list of simple text replies into the reply
-    for key in Replies:        HelpList = HelpList + f'- {key}\n'
+    for key in Replies:        HelpReply = HelpReply + f'- {key}\n'
 
     # Now append the more complex commands
-    HelpReply = HelpReply + "I can also respond to the following commands:\n"
+    HelpReply = HelpReply + "\nI can also respond to the following commands:\n"
     for command in bot.commands:        HelpReply += f"- {command}\n"
 
     # The reply is fully assembled, time to send it to the channel
     await ctx.send(HelpReply)
-
     return
 
 @bot.event
 async def on_command_error(ctx, error):
     if isinstance(error, commands.CommandNotFound):
         await ctx.send("Did you call my name? Type 'Moji, help' for a list of actions that i can perform!")
-
-@bot.event
+@bot.command(name='scream', help="Gotta get this shit running")
 async def scream(ctx):
-    X = True;
+    X = True
     if X:
         await ctx.channel.send(f'Sorry, I cannot scream until master fixes the path of the audio files')
         return         # This function is temporally disabled till it can be properly migrated to the server
@@ -113,8 +108,7 @@ async def scream(ctx):
         # await vc.disconnect()
     else:
         await ctx.channel.send(f'I dont see you in any voice channel')
-
-@bot.event
+@bot.command(name='sing', help="Gotta get this shit running")
 async def sing(ctx):
     X = True;
     if X:
@@ -140,16 +134,15 @@ async def sing(ctx):
                 # await vc.disconnect()
     else:
         await ctx.channel.send(f'I dont see you in any voice channel')
-
-@bot.event
+@bot.command(name='rock', help="Gotta get this shit running")
 async def rock(ctx):
     if f'{ctx.author}' == 'anthonyzf20':    await ctx.channel.send('Paper! I win!')
     else:                                   await ctx.channel.send( RockPaperScissors('rock'))
-@bot.event
+@bot.command(name='paper', help="Gotta get this shit running")
 async def paper(ctx):
     if f'{ctx.author}' == 'anthonyzf20':    await ctx.channel.send('Scissors! I win!')
     else:                                   await ctx.channel.send( RockPaperScissors('paper'))
-@bot.event
+@bot.command(name='scissors', help="Gotta get this shit running")
 async def scissors(ctx):
     if f'{ctx.author}' == 'anthonyzf20':    await ctx.channel.send('Rock! I win!')
     else:                                   await ctx.channel.send( RockPaperScissors('scissors'))

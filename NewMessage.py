@@ -18,7 +18,7 @@ async def Responses(message):
 
         # Dump the info of said file into a dictionary
         Replies = ResponsesList
-        ResponsesList.close()  # The info has been dumped into the dictionay, JSON can be closed now.
+
         Close = False
 
         # Check if we hit any of the JSON replies
