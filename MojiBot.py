@@ -18,7 +18,7 @@ intents = discord.Intents.default()
 intents.members = True                  # Detect events related to a server member. For example, a new arrival or someone leaving the server
 intents.message_content = True          # Detects messages and their content, name is pretty self explanatory
 
-bot = commands.Bot(command_prefix = ('Moji, ', 'moji, ', 'Moji '), intents=intents, help_command=None)  # Set the prefix and the permissions.
+bot = commands.Bot(command_prefix = ('Moji, ', 'moji, ', 'Moji ','Moji,', 'moji,', 'Moji'), intents=intents, help_command=None)  # Set the prefix and the permissions.
 
 @bot.event       # This code block is executed once, after the Bot logins
 async def on_ready():
@@ -34,16 +34,26 @@ async def on_message(message):
         # await bot.tree.sync()
         await message.channel.send('"bot.tree.sync()" is temporaily disabled, master')
         return
+
     # if current message is from Bot itself, ignore it and finish the function.
     # This prevents the bot from replying to itself and thus avoids undesirable loops.
     if message.author == bot.user: return
+
     # If you want simple responses to certain messages, set them in the associated JSON file and put this line. For more
     # interactive responses (like repeating the message text or doing an operation) use commands, as those can receive arguments
-    await Responses(message)
+    if await Responses(message):
+        return
+
     # Check if received message is a command. If your bot has no commands, then this line isnt necesary.
     # Also you might want to change from "bot" to "client". Setting it as "bot" is only necesary for enabling commands
     await bot.process_commands(message)
-    return
+
+
+    # If the message mentioned moji but it wasnt detected as a Simple Response nor command, send default 'help' message
+    content = f'{message.content.lower()}'
+    if content==('moji') or content==('moji,') or content==('moji, '):
+        await message.channel.send("Did you call my name? Type 'Moji, help' for a list of actions that i can perform!")
+        return
 
 #------------------------------------------------COMMANDS---------------------------------------------------
 @bot.command(name='say', help="Makes Moji say whatever you want")
@@ -53,7 +63,6 @@ async def say(ctx, *phrase):
 
 @bot.command(name='help', help="Gotta get this shit running")
 async def help(ctx):
-    print("Help function called")
     await HelpReply(ctx, current_dir, bot)
     return
 
