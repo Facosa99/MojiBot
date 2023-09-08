@@ -1,0 +1,39 @@
+# Moji, snack time
+# Good moji
+# Moji, help
+# Moji, silence them
+# ASCII Art
+# Its Mojin Time
+# Moji, notify the server (Reply with meme "Master is Masterbating")
+# /Rule34 (Tag) (Show a random rule34.com entry related to the indicated tag)
+# Pekora Audio (Personal reasons)
+# Veracruz Anthem (Personal reasons)
+# Moji, where are you? Return a random result from a pool. Possible answers could include
+		- In your walls
+		- 33km away (editarlo a 32km, a 31km, ...)
+		- Aico House
+		- Peru
+# Moji, dance - Mostrar un GIF aletaorio tomado de un set aleatorio de 3 o 4 GIFs de baile
+# Moji, flip, con 10% de posibilidad de que salga bien el flip
+# Moji, random number
+# Moji, show your feet
+# Moji moment - "This is a certified moji moment"
+# Moji monday - "Today is Moji Monday, happy Moji Monday" (create event)
+# Include dance GIF in RockPaperScissors when moji wins
+# Send the same "Rei i wet my bed" pciture every night at 2am, for ever
+# "Im not gay but im peruvian and..." copypasta (Personal reasons)
+
+# Change code so JSON files are loaded once per execution and having it always loaded in memory. Slightly more RAM usage, in exchange to less CPU usage
+# Also, create 'help' reply once per execution too, instead of assembling the command list reply everytime the user asks for it.
+
+# Fix audio files path
+
+# Disabled replies, fix and re-enable them
+	"moji, snack time":     "Put a snack gif here",
+	"moji, notify the server":"Master is masturbating",
+	"its Mojin Time":       "Creepy image here",
+	"5":                    "Cinco? Por el culo te la ahinco!",
+	"13":                   "Trece? Entre mas me la mamas mas me crece!",
+
+
+Happy birthday: Create server event. Generate customized picture of Moji holding a cake with user's profile picture printed on it. 
