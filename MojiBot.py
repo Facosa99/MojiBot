@@ -68,21 +68,18 @@ async def help(ctx):
 
 @bot.event
 async def on_command_error(ctx, error):
-    if isinstance(error, commands.CommandNotFound):
-        await ctx.send("Did you call my name? Type 'Moji, help' for a list of actions that i can perform!")
+    if isinstance(error, commands.CommandNotFound): await ctx.send("Did you call my name? Type 'Moji, help' for a list of actions that i can perform!");
     return
 @bot.command(name='scream', help="Gotta get this shit running")
 async def scream(ctx):
     # This function is temporally disabled till it can be properly migrated to the server
     if True:        await ctx.channel.send(f'Sorry, I cannot scream until master fixes the path of the audio files')
-    else:           await PlayAudio(ctx, current_dir, 'scream.mp3')
-    return
+    else:           await PlayAudio(ctx, current_dir, 'scream.mp3');    return
 @bot.command(name='sing', help="Gotta get this shit running")
 async def sing(ctx):
     # This function is temporally disabled till it can be properly migrated to the server
     if True:        await ctx.channel.send(f'Sorry, I cannot sing until master fixes the path of the audio files')
-    else:           await PlayAudio(ctx, current_dir, 'IsabelleSong.mp3')
-    return
+    else:           await PlayAudio(ctx, current_dir, 'IsabelleSong.mp3');  return
 @bot.command(name='rock', help="Play 'Rock, Paper, Scissors' agaisnt Moji")
 async def rock(ctx):
     await RockPaperScissors(ctx, "rock");       return

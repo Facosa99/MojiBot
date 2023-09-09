@@ -23,8 +23,7 @@ async def RockPaperScissors (ctx, Attack):
             return
 
 async def Say(ctx, *arg):
-    Text = " ".join(arg)
-    await ctx.send(f"{Text}")
+    await ctx.send(" ".join(arg))   # Print as String rather than tuple, to avoid this: ("dictionary", "format")
     await ctx.message.delete()
     del(arg)
     return
@@ -74,24 +73,45 @@ async def PlayAudio(ctx, current_dir, filename):
 
 async def Rule34(ctx, *Tags):
     r34Py = rule34Py()
-    await ctx.channel.send(f'Okie dokie pokie!, let me find something to your liking')
-    #print(r34Py.version)#
+    # print(r34Py.version)  # Powered by this wonderful repository: https://github.com/b3yc0d3/rule34Py
 
-    Tags = " ".join(Tags)
+    if f'{Tags[0].lower()}' == 'help':
+        await ctx.channel.send(f'"help" command does nothing yet, master is a lazyfuck')
 
-    # megumin 1boy -yunyun_(konosuba) arms_up 1girls breasts armpits -1boy
+    elif f'{Tags[0].lower()}' == 'search':   # If first element on list is 'results', the user specified for this option
+        Tags = " ".join(Tags[1:]).lower()
 
-    result_search       = r34Py.search(["neko"], page_id=2, limit=50)
-    result_pool         = r34Py.get_pool(17509)  # or r34Py.get_pool(17509, false)
-    result_random       = r34Py.random_post([Tags])  # or r34Py.random_post()
-    print(result_random)
-    result_tagmap       = r34Py.tagmap()
+        if len(Tags) == 0:
+            await ctx.channel.send(f'Sorry, you did not specified any tags for the search. For more information, type'
+                                   f'"Moji, rule34 help"')
+            return      # If the user didnt specify any tags, stop the function here
+        search = r34Py.search([Tags], limit=3)
 
-    #print(result_random.id)
-    #print(result_random.image)
-    if result_random:
-        await ctx.channel.send(f'{result_random.image}')
+        await ctx.channel.send(f'Okie dokie pokie! Im searching the firsts results for "{Tags}"')
+        if search:
+            results = f''
+            for result in search:
+                results = results + f'- {result.image}\n'
+            await ctx.channel.send(f"{results}")
+        else:
+            await ctx.channel.send(f"Sorry, I could not find any result")
+        return
+
+
+
     else:
-        await ctx.channel.send(f"I could not find any suitable result, sorry")
-    del(Tags)
-    return
+        await ctx.channel.send(f'Okie dokie pokie!, let me find something to your liking')
+        Tags = " ".join(Tags).lower()
+
+        result_random       = r34Py.random_post([Tags])  # or r34Py.random_post()
+        print(result_random)
+        #result_tagmap       = r34Py.tagmap()
+
+        #print(result_random.id)
+        #print(result_random.image)
+        if result_random:
+            await ctx.channel.send(f'{result_random.image}')
+        else:
+            await ctx.channel.send(f"I could not find any suitable result, sorry")
+        del(Tags)
+        return

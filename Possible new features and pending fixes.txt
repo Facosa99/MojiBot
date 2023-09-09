@@ -3,6 +3,7 @@
 # Moji, help
 # Moji, silence them
 # ASCII Art
+# GIF of moji loading a shotgun
 # Its Mojin Time
 # Moji, notify the server (Reply with meme "Master is Masterbating")
 # /Rule34 (Tag) (Show a random rule34.com entry related to the indicated tag)
@@ -61,3 +62,7 @@ async def _8balls(ctx, *, question):
                  "Outlook not so good.",
                  "Very doubtful."]
     await ctx.send(f'**Question**: \"{question}\"\n**Response**: \"{random.choice(responses)}\"')
+
+# put the ol image editing projects from school, why not? Take pictures and make them black and white or whatever
+
+# Allow the user to specify how many results he wants to find in the "rule34 search" command
