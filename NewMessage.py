@@ -8,9 +8,9 @@ import discord
 current_dir = str(Path(__file__).resolve().parent).replace('\\', '/')
 
 async def Responses(message):
-        # if f'{message.author}' == 'anthonyzf20':  # Reply to this user everytime the bot detects a new message from then
-        #   await message.channel.send('¿Quien?')  # Basically turn the bot into harasser-mode
-        #   return
+        if f'{message.author}' == 'notawolf119':  # Reply to this user everytime the bot detects a new message from then
+           await message.channel.send('Silencio, furro!')  # Basically turn the bot into harasser-mode
+           return
 
         # Open the JSON file with the list of simple text replies
         with open(current_dir + '/QuickResponses.json', 'r') as openfile:

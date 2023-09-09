@@ -3,6 +3,7 @@ import json
 import asyncio
 
 import discord
+from rule34Py import rule34Py
 
 
 async def RockPaperScissors (ctx, Attack):
@@ -70,3 +71,27 @@ async def PlayAudio(ctx, current_dir, filename):
         # await vc.disconnect()
     else:               # In case the user is not in a voicechat
         await ctx.channel.send(f'I dont see you in any voice channel')
+
+async def Rule34(ctx, *Tags):
+    r34Py = rule34Py()
+    await ctx.channel.send(f'Okie dokie pokie!, let me find something to your liking')
+    #print(r34Py.version)#
+
+    Tags = " ".join(Tags)
+
+    # megumin 1boy -yunyun_(konosuba) arms_up 1girls breasts armpits -1boy
+
+    result_search       = r34Py.search(["neko"], page_id=2, limit=50)
+    result_pool         = r34Py.get_pool(17509)  # or r34Py.get_pool(17509, false)
+    result_random       = r34Py.random_post([Tags])  # or r34Py.random_post()
+    print(result_random)
+    result_tagmap       = r34Py.tagmap()
+
+    #print(result_random.id)
+    #print(result_random.image)
+    if result_random:
+        await ctx.channel.send(f'{result_random.image}')
+    else:
+        await ctx.channel.send(f"I could not find any suitable result, sorry")
+    del(Tags)
+    return

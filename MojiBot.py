@@ -61,7 +61,7 @@ async def say(ctx, *phrase):
     await Say(ctx, *phrase)
     return
 
-@bot.command(name='help', help="Gotta get this shit running")
+@bot.command(name='help', help="List all available interactions")
 async def help(ctx):
     await HelpReply(ctx, current_dir, bot)
     return
@@ -92,5 +92,8 @@ async def paper(ctx):
 @bot.command(name='scissors', help="Play 'Rock, Paper, Scissors' agaisnt Moji")
 async def scissors(ctx):
     await RockPaperScissors(ctx, "scissors");   return
+@bot.command(name='rule34', help="testing rule34")
+async def rule34(ctx, *Tags):
+    await Rule34(ctx, *Tags);   return
 
 bot.run(os.environ['BotToken']) # Bot's unique token, stored in the .env file within the same directory as the rest of the project
