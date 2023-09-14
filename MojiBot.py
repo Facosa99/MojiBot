@@ -74,23 +74,29 @@ async def on_command_error(ctx, error):
 async def scream(ctx):
     # This function is temporally disabled till it can be properly migrated to the server
     if True:        await ctx.channel.send(f'Sorry, I cannot scream until master fixes the path of the audio files')
-    else:           await PlayAudio(ctx, current_dir, 'scream.mp3');    return
+    else:           await PlayAudio(ctx, current_dir, 'scream.mp3')
+    return
 @bot.command(name='sing', help="Gotta get this shit running")
 async def sing(ctx):
     # This function is temporally disabled till it can be properly migrated to the server
     if True:        await ctx.channel.send(f'Sorry, I cannot sing until master fixes the path of the audio files')
-    else:           await PlayAudio(ctx, current_dir, 'IsabelleSong.mp3');  return
+    else:           await PlayAudio(ctx, current_dir, 'IsabelleSong.mp3')
+    return
 @bot.command(name='rock', help="Play 'Rock, Paper, Scissors' agaisnt Moji")
 async def rock(ctx):
-    await RockPaperScissors(ctx, "rock");       return
+    await RockPaperScissors(ctx, "rock");
+    return
 @bot.command(name='paper', help="Play 'Rock, Paper, Scissors' agaisnt Moji")
 async def paper(ctx):
-    await RockPaperScissors(ctx, "paper");      return
+    await RockPaperScissors(ctx, "paper");
+    return
 @bot.command(name='scissors', help="Play 'Rock, Paper, Scissors' agaisnt Moji")
 async def scissors(ctx):
-    await RockPaperScissors(ctx, "scissors");   return
+    await RockPaperScissors(ctx, "scissors");
+    return
 @bot.command(name='rule34', help="testing rule34")
 async def rule34(ctx, *Tags):
-    await Rule34(ctx, *Tags);   return
+    await Rule34(ctx, *Tags);
+    return
 
 bot.run(os.environ['BotToken']) # Bot's unique token, stored in the .env file within the same directory as the rest of the project

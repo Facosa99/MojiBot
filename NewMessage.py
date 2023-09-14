@@ -29,5 +29,6 @@ async def Responses(message):
                 Close = True
             if Close: return True   # If we hit the target phrase already, there is no need to run the rest of the
                                     # for loop nor the rest of this function. Return True to indicate we hit a response
-        return False                 # If we reach this far into the function, we haven't hit anything, close it and return
+
+        return False                # If we reach this far into the function, we haven't hit anything, close it and return
                                     # False to indicate the input was not part of the recorded replies.

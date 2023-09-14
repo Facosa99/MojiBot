@@ -75,17 +75,17 @@ async def Rule34(ctx, *Tags):
     r34Py = rule34Py()
     # print(r34Py.version)  # Powered by this wonderful repository: https://github.com/b3yc0d3/rule34Py
 
-    if f'{Tags[0].lower()}' == 'help':
+    if f'{Tags[0].lower()}' == 'help':       # Describe the command
         await ctx.channel.send(f'"help" command does nothing yet, master is a lazyfuck')
 
-    elif f'{Tags[0].lower()}' == 'search':   # If first element on list is 'results', the user specified for this option
+    elif f'{Tags[0].lower()}' == 'search':   # If user specifies 'search', look for the first results for the specified Tags
         Tags = " ".join(Tags[1:]).lower()
 
         if len(Tags) == 0:
             await ctx.channel.send(f'Sorry, you did not specified any tags for the search. For more information, type'
                                    f'"Moji, rule34 help"')
             return      # If the user didnt specify any tags, stop the function here
-        search = r34Py.search([Tags], limit=3)
+        search = r34Py.search([Tags], limit=5)
 
         await ctx.channel.send(f'Okie dokie pokie! Im searching the firsts results for "{Tags}"')
         if search:
@@ -97,9 +97,11 @@ async def Rule34(ctx, *Tags):
             await ctx.channel.send(f"Sorry, I could not find any result")
         return
 
+    elif    f'{Tags[0].lower()}' == 'top':   # If user specifies 'top', show today's favorites
+        top = r34Py.top_favorites()
+        await ctx.channel.send(f"Today's top favorites are {top}")
 
-
-    else:
+    else:                                    # Find a random artwork of the specified Tags
         await ctx.channel.send(f'Okie dokie pokie!, let me find something to your liking')
         Tags = " ".join(Tags).lower()
 
