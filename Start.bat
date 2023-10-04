@@ -1,5 +1,5 @@
 @echo off
 echo Starting...
-cd C:\replace\with\path\to\Python\Enviroment
+cd C:\Users\facos\Documents\Python\MojiBot\MojiEnviroment\Scripts\
 activate
-cd C:\replace\with\path\to\Python\Program
+cd C:\Users\facos\Documents\Python\MojiBot\MojiBot.py 
