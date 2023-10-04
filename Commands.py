@@ -29,6 +29,10 @@ async def Say(ctx, *arg):
     return
 
 async def HelpReply(ctx, current_dir, bot):
+    HelpReply = f''
+
+
+    # The following code is required only when JSON replies are enabled
     # Open the JSON file with the list of simple text replies
     with open(current_dir + '/QuickResponses.json', 'r') as openfile:
         ResponsesList = json.load(openfile)
@@ -41,6 +45,7 @@ async def HelpReply(ctx, current_dir, bot):
     for key in Replies:        HelpReply = HelpReply + f'- {key}\n'
 
     # Now append the more complex commands
+
     HelpReply = HelpReply + "\nI can also respond to the following commands:\n"
     for command in bot.commands:        HelpReply += f"- {command}\n"
 
@@ -75,8 +80,18 @@ async def Rule34(ctx, *Tags):
     r34Py = rule34Py()
     # print(r34Py.version)  # Powered by this wonderful repository: https://github.com/b3yc0d3/rule34Py
 
+    if ctx.channel.is_nsfw() == False:
+        await ctx.channel.send(f'Sorry, I can only do that in a lewd channel')
+        return      # If the channel isnt NSFW, stop the function here.
+    if len(Tags) == 0:
+        await ctx.channel.send(f'Sorry, you did not specified any tags for the search. For more information, type'
+                               f'"Moji, rule34 help"')
+
     if f'{Tags[0].lower()}' == 'help':       # Describe the command
-        await ctx.channel.send(f'"help" command does nothing yet, master is a lazyfuck')
+        await ctx.channel.send(f'Hi :heart:, the "Rule34" command can be used in many different ways.\n'
+                               f'- "Moji, rule34 <tags>" gives you a random image or video with the specified tag or tags\n'
+                               f'- "Moji, rule34 search <tags>" shows you the 5 most recent pictures or video with the specified tags')
+        return
 
     elif f'{Tags[0].lower()}' == 'search':   # If user specifies 'search', look for the first results for the specified Tags
         Tags = " ".join(Tags[1:]).lower()
@@ -91,8 +106,9 @@ async def Rule34(ctx, *Tags):
         if search:
             results = f''
             for result in search:
-                results = results + f'- {result.image}\n'
+                results = results + f'- {result.image}{result.video}\n'
             await ctx.channel.send(f"{results}")
+
         else:
             await ctx.channel.send(f"Sorry, I could not find any result")
         return
@@ -105,14 +121,14 @@ async def Rule34(ctx, *Tags):
         await ctx.channel.send(f'Okie dokie pokie!, let me find something to your liking')
         Tags = " ".join(Tags).lower()
 
-        result_random       = r34Py.random_post([Tags])  # or r34Py.random_post()
+        result_random       = r34Py.random_post("")  # or r34Py.random_post()
         print(result_random)
         #result_tagmap       = r34Py.tagmap()
 
         #print(result_random.id)
         #print(result_random.image)
         if result_random:
-            await ctx.channel.send(f'{result_random.image}')
+            await ctx.channel.send(f'{result_random.image}{result_random.video}')
         else:
             await ctx.channel.send(f"I could not find any suitable result, sorry")
         del(Tags)

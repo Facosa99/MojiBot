@@ -7,6 +7,7 @@
 # Its Mojin Time
 # Moji, notify the server (Reply with meme "Master is Masterbating")
 # /Rule34 (Tag) (Show a random rule34.com entry related to the indicated tag)
+# Limit NSFW commands to NSFW channels
 # Pekora Audio (Personal reasons)
 # Veracruz Anthem (Personal reasons)
 # Moji, where are you? Return a random result from a pool. Possible answers could include
@@ -66,3 +67,10 @@ async def _8balls(ctx, *, question):
 # put the ol image editing projects from school, why not? Take pictures and make them black and white or whatever
 
 # Allow the user to specify how many results he wants to find in the "rule34 search" command
+
+# New text:
+
+I live in a low income housing environment that goes by the government name of "The Burrows". Me and a group of my allies control certain areas of this section in order to run our illegitimate business. 
+We possess unregistered firearms, stolen vehicles, mind-altering inhibitors and only use cash for financial purchases. 
+If anyone would like to settle unfinished altercations, i will be more than happy to release my address. 
+I would like to warn you; Ii am a very dangerous person and i regularly disobey the law.

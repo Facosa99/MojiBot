@@ -42,16 +42,16 @@ async def on_message(message):
     # If you want simple responses to certain messages, set them in the associated JSON file and put this line. For more
     # interactive responses (like repeating the message text or doing an operation) use commands, as those can receive arguments
     if await Responses(message):
-        return
+         return    # If we hit a JSON responde, we use 'return' to close this function and thus avoid executing code regarding commands, as it wont be necesary
 
     # Check if received message is a command. If your bot has no commands, then this line isnt necesary.
     # Also you might want to change from "bot" to "client". Setting it as "bot" is only necesary for enabling commands
     await bot.process_commands(message)
 
 
-    # If the message mentioned moji but it wasnt detected as a Simple Response nor command, send default 'help' message
+    # If the message mentioned moji but it wasnt detected as a Simple Response nor command, send default message
     content = f'{message.content.lower()}'
-    if content==('moji') or content==('moji,') or content==('moji, '):
+    if content==('moji,') or content==('moji, '):
         await message.channel.send("Did you call my name? Type 'Moji, help' for a list of actions that i can perform!")
         return
 
@@ -84,19 +84,26 @@ async def sing(ctx):
     return
 @bot.command(name='rock', help="Play 'Rock, Paper, Scissors' agaisnt Moji")
 async def rock(ctx):
-    await RockPaperScissors(ctx, "rock");
+    await RockPaperScissors(ctx, "rock")
     return
 @bot.command(name='paper', help="Play 'Rock, Paper, Scissors' agaisnt Moji")
 async def paper(ctx):
-    await RockPaperScissors(ctx, "paper");
+    await RockPaperScissors(ctx, "paper")
     return
 @bot.command(name='scissors', help="Play 'Rock, Paper, Scissors' agaisnt Moji")
 async def scissors(ctx):
-    await RockPaperScissors(ctx, "scissors");
+    await RockPaperScissors(ctx, "scissors")
     return
 @bot.command(name='rule34', help="testing rule34")
 async def rule34(ctx, *Tags):
-    await Rule34(ctx, *Tags);
+    await Rule34(ctx, *Tags)
     return
 
+@bot.command(name='test1', help="testing rule34")
+async def test1(ctx):
+    if ctx.channel.is_nsfw():
+        await ctx.channel.send("This channel is NSFW")
+    else:
+        await ctx.channel.send("This channel is SFW")
+    return
 bot.run(os.environ['BotToken']) # Bot's unique token, stored in the .env file within the same directory as the rest of the project
