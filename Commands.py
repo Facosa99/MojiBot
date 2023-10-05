@@ -121,7 +121,8 @@ async def Rule34(ctx, *Tags):
         await ctx.channel.send(f'Okie dokie pokie!, let me find something to your liking')
         Tags = " ".join(Tags).lower()
 
-        result_random       = r34Py.random_post("")  # or r34Py.random_post()
+        result_random       = r34Py.random_post([Tags])
+
         print(result_random)
         #result_tagmap       = r34Py.tagmap()
 
